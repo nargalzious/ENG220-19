@@ -17,6 +17,29 @@ import pandas as pd
 
 file_path = "https://raw.githubusercontent.com/kassandrasage24-ctrl/ENG220-19/refs/heads/main/global_water_consumption.csv"
 water = pd.read_csv(file_path)
+
+plt.figure(figsize=(10, 6))
+sns.scatterplot(x='Rainfall Impact (Annual Precipitation in mm)', y='Groundwater Depletion Rate (%)', data=water)
+plt.title('Rainfall Impact vs. Groundwater Depletion Rate (%)')
+plt.xlabel('Rainfall Impact (Annual Precipitation in mm)')
+plt.ylabel('Groundwater Depletion Rate (%)')
+plt.grid(True)
+st.scatter_chart(plt.show())
+
+plt.figure(figsize=(10, 6))
+sns.scatterplot(x='Total Water Consumption (Billion Cubic Meters)', y='Groundwater Depletion Rate (%)', data=water)
+plt.title('Total Water Consumption vs. Groundwater Depletion Rate')
+plt.xlabel('Total Water Consumption (Billion Cubic Meters)')
+plt.ylabel('Groundwater Depletion Rate (%)')
+plt.grid(True)
+plt.show()
+
+counts = water["Water Scarcity Level"].value_counts()
+
+plt.pie(counts, labels=counts.index, autopct="%1.1f%%", startangle=90)
+plt.title("Water Scarcity Level Distribution")
+plt.show()
+
 # Assuming 'water' DataFrame is already loaded from previous cells.
 
 st.title("Water Consumption and Scarcity Analysis")

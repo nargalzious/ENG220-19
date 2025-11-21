@@ -8,38 +8,15 @@ Original file is located at
 """
 
 
-
-!pip install streamlit
-import streamlit as st
+import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-import pandas as pd
 import numpy as np
+!pip install streamlit
+import streamlit as st
 
 file_path = "https://raw.githubusercontent.com/kassandrasage24-ctrl/ENG220-19/refs/heads/main/global_water_consumption.csv"
 water = pd.read_csv(file_path)
-
-plt.figure(figsize=(10, 6))
-sns.scatterplot(x='Rainfall Impact (Annual Precipitation in mm)', y='Groundwater Depletion Rate (%)', data=water)
-plt.title('Rainfall Impact vs. Groundwater Depletion Rate (%)')
-plt.xlabel('Rainfall Impact (Annual Precipitation in mm)')
-plt.ylabel('Groundwater Depletion Rate (%)')
-plt.grid(True)
-st.scatter_chart(plt.show())
-
-plt.figure(figsize=(10, 6))
-sns.scatterplot(x='Total Water Consumption (Billion Cubic Meters)', y='Groundwater Depletion Rate (%)', data=water)
-plt.title('Total Water Consumption vs. Groundwater Depletion Rate')
-plt.xlabel('Total Water Consumption (Billion Cubic Meters)')
-plt.ylabel('Groundwater Depletion Rate (%)')
-plt.grid(True)
-plt.show()
-
-counts = water["Water Scarcity Level"].value_counts()
-
-plt.pie(counts, labels=counts.index, autopct="%1.1f%%", startangle=90)
-plt.title("Water Scarcity Level Distribution")
-plt.show()
 
 # Assuming 'water' DataFrame is already loaded from previous cells.
 
@@ -52,8 +29,10 @@ sns.scatterplot(x='Rainfall Impact (Annual Precipitation in mm)', y='Groundwater
 ax1.set_title('Rainfall Impact vs. Groundwater Depletion Rate (%)')
 ax1.set_xlabel('Rainfall Impact (Annual Precipitation in mm)')
 ax1.set_ylabel('Groundwater Depletion Rate (%)')
-ax1.grid(True)
+st.write("Rainfall Impact vs. Groundwater Depletion Rate (%)")
 st.pyplot(fig1)
+ax1.grid(True)
+
 
 # Graph 2: Total Water Consumption vs. Groundwater Depletion Rate
 st.header("Total Water Consumption vs. Groundwater Depletion Rate")
@@ -62,8 +41,10 @@ sns.scatterplot(x='Total Water Consumption (Billion Cubic Meters)', y='Groundwat
 ax2.set_title('Total Water Consumption vs. Groundwater Depletion Rate')
 ax2.set_xlabel('Total Water Consumption (Billion Cubic Meters)')
 ax2.set_ylabel('Groundwater Depletion Rate (%)')
-ax2.grid(True)
+st.write("Total Water Consumption vs. Groundwater Depletion Rate")
 st.pyplot(fig2)
+ax2.grid(True)
+
 
 # Graph 3: Water Scarcity Level Distribution
 st.header("Water Scarcity Level Distribution")
@@ -71,4 +52,6 @@ fig3, ax3 = plt.subplots(figsize=(8, 8))
 counts = water["Water Scarcity Level"].value_counts()
 ax3.pie(counts, labels=counts.index, autopct="%1.1f%%", startangle=90)
 ax3.set_title("Water Scarcity Level Distribution")
+st.write("Water Scarcity Level Distribution")
 st.pyplot(fig3)
+

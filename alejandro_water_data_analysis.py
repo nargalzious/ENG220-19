@@ -9,7 +9,7 @@ Original file is located at
 
 
 
-
+!pip install streamlit
 import streamlit as st
 import matplotlib.pyplot as plt
 import seaborn as sns

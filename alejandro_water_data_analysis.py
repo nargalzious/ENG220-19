@@ -14,6 +14,7 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
+import numpy as np
 
 file_path = "https://raw.githubusercontent.com/kassandrasage24-ctrl/ENG220-19/refs/heads/main/global_water_consumption.csv"
 water = pd.read_csv(file_path)

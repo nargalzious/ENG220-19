@@ -6,7 +6,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
-!pip install streamlit
 import streamlit as st
 
 file_path = "https://raw.githubusercontent.com/kassandrasage24-ctrl/ENG220-19/refs/heads/main/global_water_consumption.csv"
